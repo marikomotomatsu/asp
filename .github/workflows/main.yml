@@ -2,7 +2,7 @@ name: Run Python Script
 
 on:
   schedule:
-    - cron: '*/15 * * * *'   # 　毎15分ごとに実行
+    - cron: '*/15 * * * *'   #　毎15分ごとに実行
   workflow_dispatch:
 
 jobs:
