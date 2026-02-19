@@ -117,7 +117,7 @@ scope = [
 creds = ServiceAccountCredentials.from_json_keyfile_name(credentials_path, scope)
 client = gspread.authorize(creds)
 
-sheet = client.open_by_key(SPREADSHEET_ID).worksheet("_test")  
+sheet = client.open_by_key(SPREADSHEET_ID).worksheet("affi-plus_成果結果リスト")  
 
 ########################################
 # 7. A列重複削除
