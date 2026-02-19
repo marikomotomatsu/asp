@@ -99,7 +99,11 @@ csv_data = csv_data.iloc[:, :16]   # A〜P列（16列）
 ########################################
 
 GOOGLE_CREDENTIALS = os.getenv("GOOGLE_CREDENTIALS")
-SPREADSHEET_ID = "1zCBRVmsHL01MsIrbpd_Egrni41jc4Aa176SBIN5Z5Sc"
+if GOOGLE_CREDENTIALS is None:
+    raise ValueError("GOOGLE_CREDENTIALS が環境変数に設定されていません。")
+SPREADSHEET_ID = os.getenv("SPREADSHEET_ID")
+if SPREADSHEET_ID is None:
+    raise ValueError("SPREADSHEET_ID が環境変数に設定されていません。")
 
 credentials_path = "/tmp/credentials.json"
 with open(credentials_path, "w") as f:
