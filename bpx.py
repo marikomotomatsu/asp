@@ -38,15 +38,15 @@ driver = webdriver.Chrome(service=service, options=options)
 # 2. affi-plusログイン
 ########################################
 
-USERNAME = os.getenv("AFFI_USERNAME")
-PASSWORD = os.getenv("AFFI_PASSWORD")
-if not USERNAME or not PASSWORD:
-    raise ValueError("AFFI_USERNAME / AFFI_PASSWORD が未設定")
+MAIL = os.getenv("BPX_MAIL")
+PASSWORD = os.getenv("BPX_PASSWORD")
+if not MAIL or not PASSWORD:
+    raise ValueError("BPX_MAIL / BPX_PASSWORD が未設定")
 
 driver.get("https://affi-plus.com/contents.php?c=user_login")
 time.sleep(3)
 
-driver.find_element(By.NAME, "mail").send_keys(USERNAME)
+driver.find_element(By.NAME, "mail").send_keys(MAIL)
 driver.find_element(By.NAME, "pass").send_keys(PASSWORD)
 driver.find_element(By.XPATH, "//input[@type='submit']").click()
 time.sleep(5)
